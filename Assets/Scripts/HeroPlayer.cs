@@ -3,11 +3,11 @@ using UnityEngine.Serialization;
 
 public class HeroPlayer : MonoBehaviour
 {
-    [SerializeField] private Pistol _pistol;  
-    [SerializeField] private Shotgun _shotgun; 
+    [SerializeField] private Transform _firePoint;  
     [SerializeField] private WeaponConfig _pistolConfig;  
-    [SerializeField] private WeaponConfig _shotgunConfig;  
-    
+    [SerializeField] private WeaponConfig _shotgunConfig;
+    [SerializeField] private SpriteRenderer _weaponSprite;
+   
     private Weapon _currentWeapon;
     private CharacterController _characterController;
     
@@ -15,13 +15,14 @@ public class HeroPlayer : MonoBehaviour
 
     private void Start()
     {
-        _renderer = GetComponent<Renderer>(); 
+        _renderer = GetComponent<Renderer>();
+        _characterController = GetComponent<CharacterController>();
         Pistol pistol = new Pistol();
         pistol.Init(_pistolConfig);
         _currentWeapon = pistol;
     }
 
-    private void FindNearestEnemy()
+    private GameObject FindNearestEnemy()
     {
         GameObject nearestEnemy = null;
         float minDistance = Mathf.Infinity;  
@@ -42,27 +43,31 @@ public class HeroPlayer : MonoBehaviour
                 }
             }
         }
-        
-        if (_currentWeapon != null)
-        {
-            _currentWeapon.Shoot(nearestEnemy);
-        }
+
+        return nearestEnemy;
     }
     
     public void Shoot()
     {
-        FindNearestEnemy();
+        GameObject nearestEnemy = FindNearestEnemy();
+        if (nearestEnemy != null)
+        {
+            Shoot(nearestEnemy);
+        }
+    }
+
+    private void Shoot(GameObject target)
+    {
+        Debug.Log("Shooting at " + target.name);
     }
 
     public void SwitchToPistol()
     {
-        _renderer.material.color = Color.blue;  
-        _currentWeapon = _pistol;  
+        _weaponSprite.sprite = _pistolConfig.WeaponSpriteRenderer;
     }
 
     public void SwitchToShotGun()
     {
-        _renderer.material.color = Color.red;  
-        _currentWeapon = _shotgun;  
+        _weaponSprite.sprite = _shotgunConfig.WeaponSpriteRenderer;
     }
 }

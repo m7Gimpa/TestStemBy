@@ -4,5 +4,6 @@ using UnityEngine;
 public class WeaponConfig : ScriptableObject
 {
     public int damage = 10;  
-    public int bulletsPerShot = 1; 
+    public int bulletsPerShot = 1;
+    public Sprite WeaponSpriteRenderer;
 }
