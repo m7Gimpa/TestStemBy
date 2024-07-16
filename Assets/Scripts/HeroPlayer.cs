@@ -7,6 +7,7 @@ public class HeroPlayer : MonoBehaviour
     [SerializeField] private WeaponConfig _shotgunConfig;
     [SerializeField] private SpriteRenderer _weaponSprite;
     [SerializeField] private GameObject[] _bulletPrefab;
+    [SerializeField] private GameObject _radiusSprite;
 
     private Weapon _currentWeapon;
     private CharacterController _characterController;
@@ -15,6 +16,7 @@ public class HeroPlayer : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         SwitchToPistol();
+        ChangeRadiusSprite();
     }
 
     private GameObject FindNearestEnemy()
@@ -78,5 +80,14 @@ public class HeroPlayer : MonoBehaviour
         Shotgun shotgun = new Shotgun();
         shotgun.Init(_shotgunConfig);
         _currentWeapon = shotgun;
+    }
+
+    private void ChangeRadiusSprite()
+    {
+        var scale = _characterController.radius * 2;
+        var transformLocalScale = _radiusSprite.transform.localScale;
+        transformLocalScale.x = scale;
+        transformLocalScale.y = scale;
+        _radiusSprite.transform.localScale = transformLocalScale; 
     }
 }
