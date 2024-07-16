@@ -22,12 +22,10 @@ public class HeroMove : MonoBehaviour
     private void FixedUpdate()
     {
         Vector2 movementVector = Vector2.zero;
-
         
             movementVector = _camera.transform.TransformDirection(_inputService.Axis);
             movementVector.Normalize();
-        
-
+            
         _characterController.Move(_movementSpeed * movementVector * Time.deltaTime);
 
         if (movementVector.x > 0)
