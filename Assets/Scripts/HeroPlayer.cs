@@ -54,13 +54,15 @@ public class HeroPlayer : MonoBehaviour
         for (int i = 0; i < _currentWeapon.BulletsPerShot; i++)
         {
             int bulletIndex = (_currentWeapon is Pistol) ? 0 : 1;
-        
+
             GameObject bulletObject = Instantiate(_bulletPrefab[bulletIndex], _firePoint.position, Quaternion.identity);
             Bullet bullet = bulletObject.GetComponent<Bullet>();
-            bullet.Initialize(target.transform.position, _currentWeapon.Damage);
+
+            string weaponType = (_currentWeapon is Pistol) ? "Pistol" : "Shotgun";
+            bullet.Initialize(target.transform.position, _currentWeapon.Damage, weaponType);
         }
-        Debug.Log("Shooting at " + target.name);
     }
+
     
     public void SwitchToPistol()
     {

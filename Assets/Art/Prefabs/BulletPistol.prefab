@@ -99,6 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfe7489aedc7418da4346d84a6006d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 10
+  _hitEffectPistol: {fileID: 6146545414153545494, guid: 61753401622c2a947a30e2147430e97d, type: 3}
+  _hitEffectShotgun: {fileID: 5601036089067188822, guid: 924e772d99fea934f8c7dff7c622e78a, type: 3}
 --- !u!58 &9045844588756549695
 CircleCollider2D:
   m_ObjectHideFlags: 0

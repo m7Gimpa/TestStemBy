@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97c8b734a7d1450a94dd1b8dea925df7, type: 3}
   m_Name: ShotgunData
   m_EditorClassIdentifier: 
-  damage: 10
-  bulletsPerShot: 5
+  damage: 50
+  bulletsPerShot: 1
   WeaponSpriteRenderer: {fileID: 21300000, guid: 17e5714044e5e460493f32bbc905e785, type: 3}
