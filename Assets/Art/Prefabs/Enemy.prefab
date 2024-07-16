@@ -109,7 +109,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3d4777045b7d4301a9f8a93da973eed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -192,5 +192,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 581d2d6027a645c98fdf7e8f62c84bfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTextPrefab: {fileID: 6298672708159420381, guid: 56666623fa5c44edf887b61a77582fc5, type: 3}
+  damageTextPrefab: {fileID: 677820120628024539, guid: 56666623fa5c44edf887b61a77582fc5, type: 3}
   damageTextPosition: {fileID: 4253820101647738287}
